@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { resolution, isMobile, isTablet, isDesktop } from '../../utils/devices';
 
 
 const font = 'https://fonts.googleapis.com/css2?family=Raleway:wght@300;700&display=swap';
@@ -15,7 +16,30 @@ const Container = styled.div`
    height: 100vh;
    width: 100vw;
    margin: 0 auto; 
+   @media (min-width: 1280px) {
+      justify-content: flex-start;
+      align-items: flex-start;
+      flex-direction: row;
+    }
+   }
 `;
+
+const Container2 = styled.div`
+   @import url('${font}');
+   font-family: 'Raleway', sans-serif;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   height: 100vh;
+   width: 100%;
+   margin: 0 auto; 
+   @media (min-width: 1280px) {
+      width: 100%;
+   }
+`;
+
+
 
 const Section = styled.div`
    width: 100%;
@@ -40,7 +64,10 @@ const Input = styled.input`
    &:focus {
       outline: none;
       border: 2px solid ${orange};
-  }
+  };
+  @media (min-width: 1280px) {
+   width: 96%;
+}
 `;
 
 // const P = styled.p`
@@ -70,6 +97,18 @@ const Span = styled.span`
   }
 `;
 
+const Left = styled.div`
+   height: 100%;
+   width: 30%;
+`;
 
-export { Container, Label, Section, Input, Button, Span };
+const Right = styled.div`
+   height: 100%;
+   width: 100%;
+   @media (min-width: 1280px) {
+      width: 70%;
+   }
+`;
+
+export { Left, Right, Container, Label, Section, Input, Button, Span, Container2 };
 
