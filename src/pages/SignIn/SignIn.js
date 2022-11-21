@@ -20,7 +20,7 @@ export const SignIn = () => {
         try {
             await AuthDataService.login(email, password).then((userCredentials) => {
                 console.log('userCredentials: ', userCredentials);
-                // navigate('/');
+                navigate('/');
             });
         } catch (err) {
             console.log('🚀 TLC ~ file: signIn.js ~ line 21 ~ handleSubmit ~ err', err.message);
@@ -30,10 +30,13 @@ export const SignIn = () => {
 
     return <Container>
         <Section>
+            <p>MOTOKO</p>
+        </Section>
+
+        <Section>
             <Label>
                 Email
                 <Input onChange={(e) => setEmail(e.target.value)} type="text" />
-
             </Label>
         </Section>
 

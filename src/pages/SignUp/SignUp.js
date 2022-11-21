@@ -71,6 +71,7 @@ export const SignUp = () => {
 
     return <Container>
         <Section>
+            <p>MOTOKO</p>
             <h2>Crear una cuenta</h2>
             <Button>Iniciar Sesión con Google</Button>
             <p>O</p>

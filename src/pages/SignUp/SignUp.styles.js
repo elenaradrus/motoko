@@ -22,6 +22,7 @@ const Section = styled.div`
    display: flex;
    flex-direction: column;
    align-items: center; 
+   font-weight: 200;
 `;
 
 const Label = styled.label`
@@ -51,6 +52,7 @@ const Button = styled.button`
    @import url('${font}');
    font-family: 'Raleway', sans-serif;
    font-size: 1rem;
+   font-weight: 200;
    border-style: none;  
    border-radius: .3rem;
    padding: .7rem;
@@ -62,22 +64,12 @@ const Button = styled.button`
 
 const Span = styled.span`
    color: ${green};
+   &:hover {
+      cursor: pointer;
+      text-decoration: underline;
+  }
 `;
 
 
 export { Container, Label, Section, Input, Button, Span };
 
-/*
- @import url('${font}');
-   font-family: 'Raleway', sans-serif';
-   color: ${green};
-   border-radius: .3rem;
-   border: 1px solid transparent;
-   padding: .5rem;
-   background-color: #CDDAD8;
-   width: 94%;
-   margin-bottom: 1rem;
-   &:focus {
-      outline: none;
-      border: 2px solid ${orange};
-  } */
