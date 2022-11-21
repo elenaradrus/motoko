@@ -1,13 +1,18 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
+import Welcome from '../../components/Welcome/Welcome';
+import { resolution, isMobile, isTablet, isDesktop } from '../../utils/devices';
 
-import { 
-    Container, 
-    Label, 
-    Section, 
-    Input, 
-    Button, 
-    Span
+import {
+    Container,
+    Label,
+    Section,
+    Input,
+    Button,
+    Span,
+    Container2,
+    Left,
+    Right,
 } from './SignUp.styles';
 
 import AuthDataService from '../../services/auth';
@@ -69,50 +74,48 @@ export const SignUp = () => {
         navigate('/sign-in');
     }
 
+    const renderForm = () =>{
+        return (
+            <Container2>
+            <Section>
+                <p>MOTOKO</p>
+                <h2>Crear una cuenta</h2>
+                <Button>Iniciar Sesión con Google</Button>
+                <p>O</p>
+            </Section>
+            <Section>
+                <Label>
+                    Nombre
+                    <Input onChange={(e) => setName(e.target.value)} type="text" />
+                </Label>
+            </Section>
+            <Section>
+                <Label>
+                    Email
+                    <Input onChange={(e) => setEmail(e.target.value)} type="text" />
+                </Label>
+            </Section>
+            <Section>
+                <Label>
+                    Contraseña
+                    <Input onChange={(e) => setPassword(e.target.value)} type="password" />
+                </Label>
+                {/* <P>La contraseña ha de contener letras y números</P> */}
+            </Section> 
+            <Section>
+                <Button onClick={(e) => handleSubmit(e)}>Crear cuenta</Button>
+                <p>¿Ya tienes cuenta? <Span onClick={() => signin()}>Inicia sesión</Span></p>
+            </Section>
+            </Container2>
+        );
+    }
+
     return <Container>
-        <Section>
-            <p>MOTOKO</p>
-            <h2>Crear una cuenta</h2>
-            <Button>Iniciar Sesión con Google</Button>
-            <p>O</p>
-        </Section>
-
-        <Section>
-            <Label>
-                Nombre
-                <Input onChange={(e) => setName(e.target.value)} type="text" />
-            </Label>
-        </Section>
-
-        <Section>
-            <Label>
-                Email
-                <Input onChange={(e) => setEmail(e.target.value)} type="text" />
-            </Label>
-        </Section>
-
-        <Section>
-            <Label>
-                Contraseña
-                <Input onChange={(e) => setPassword(e.target.value)} type="password" />
-            </Label>
-            {/* <P>La contraseña ha de contener letras y números</P> */}
-        </Section>
-
-        {/* <Section>
-            <Label>
-                Confirmar contraseña
-                <Input onChange={(e) => console.log(e.target.value)} type="password" />
-            </Label>
-        </Section>  */}
-
-        <Section>
-            <Button onClick={(e) => handleSubmit(e)}>Crear cuenta</Button>
-            <p>¿Ya tienes cuenta? <Span onClick={() => signin()}>Inicia sesión</Span></p>
-        </Section>
-
-
-    </Container>
+        {isDesktop ? <Welcome /> : null} 
+        <Right>
+           {renderForm()}
+        </Right>
+        </Container>
 };
 
 export default SignUp;
