@@ -52,10 +52,6 @@ export const SignIn = () => {
 
         {isDesktop ? welcomeBanner() : null}
 
-        {/* <WelcomeBanner>
-            <Welcome />
-        </WelcomeBanner> */}
-
         <Form>
             {isDesktop ? null : motokoLogo()}
 

@@ -47,5 +47,4 @@ const Form = styled.div`
 `;
 
 
-
 export { Container, WelcomeBanner, Form };
