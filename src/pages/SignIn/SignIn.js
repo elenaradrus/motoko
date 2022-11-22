@@ -3,6 +3,10 @@ import { useNavigate } from 'react-router-dom';
 
 import { Container } from './SignIn.styles';
 import { Section, Label, Input, Button } from '../SignUp/SignUp.styles';
+import Welcome from '../../components/Welcome/Welcome';
+import { WelcomeBanner, Form } from './SignIn.styles';
+import { resolution, isMobile, isTablet, isDesktop } from '../../utils/devices';
+
 
 import AuthDataService from '../../services/auth';
 
@@ -27,29 +31,48 @@ export const SignIn = () => {
         }
     }
 
+    const welcomeBanner = () => {
+        return (
+            <WelcomeBanner>
+                <Welcome />
+            </WelcomeBanner>
+        );
+    };
+
+    const motokoLogo = () => {
+        return (
+            <Section>
+                <p>Motoko</p>
+            </Section>
+        );
+    };
+
 
     return <Container>
-        <Section>
-            <p>MOTOKO</p>
-        </Section>
 
-        <Section>
-            <Label>
-                Email
-                <Input onChange={(e) => setEmail(e.target.value)} type="text" />
-            </Label>
-        </Section>
+        {isDesktop ? welcomeBanner() : null}
 
-        <Section>
-            <Label>
-                Contraseña
-                <Input onChange={(e) => setPassword(e.target.value)} type="password" />
-            </Label>
-        </Section>
+        <Form>
+            {isDesktop ? null : motokoLogo()}
 
-        <Section>
-            <Button onClick={(e) => handleSubmit(e)}>Iniciar Sesión</Button>
-        </Section>
+            <Section>
+                <Label>
+                    Email
+                    <Input onChange={(e) => setEmail(e.target.value)} type="text" />
+                </Label>
+            </Section>
+
+            <Section>
+                <Label>
+                    Contraseña
+                    <Input onChange={(e) => setPassword(e.target.value)} type="password" />
+                </Label>
+            </Section>
+
+            <Section>
+                <Button onClick={(e) => handleSubmit(e)}>Iniciar Sesión</Button>
+            </Section>
+        </Form>
 
     </Container>
 };

@@ -13,6 +13,7 @@ import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 
 import store from './store';
+import Spendings from './pages/Spendings/Spendings';
 
 
 ReactDOM.render(
@@ -22,6 +23,7 @@ ReactDOM.render(
                 <Route path="/" element={<Home />} />
                 <Route path="/sign-in" element={<SignIn />} />
                 <Route path="/sign-up" element={<SignUp />} />
+                <Route path="/spendings" element={<Spendings />} />
                 <Route path="/training-day/type" element={<ExerciseTypes/>} />
                 <Route path="/training-day/:date/types/:type" element={<MuscleSession />}/>
             </Routes>

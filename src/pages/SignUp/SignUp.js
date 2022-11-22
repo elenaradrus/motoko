@@ -72,50 +72,57 @@ export const SignUp = () => {
 
     const signin = () => {
         navigate('/sign-in');
-    }
+    };
 
-    const renderForm = () =>{
+    const motokoLogo = () => {
+        return (
+            <p>Motoko</p>
+        );
+    };
+
+    const renderForm = () => {
         return (
             <Container2>
-            <Section>
-                <p>MOTOKO</p>
-                <h2>Crear una cuenta</h2>
-                <Button>Iniciar Sesión con Google</Button>
-                <p>O</p>
-            </Section>
-            <Section>
-                <Label>
-                    Nombre
-                    <Input onChange={(e) => setName(e.target.value)} type="text" />
-                </Label>
-            </Section>
-            <Section>
-                <Label>
-                    Email
-                    <Input onChange={(e) => setEmail(e.target.value)} type="text" />
-                </Label>
-            </Section>
-            <Section>
-                <Label>
-                    Contraseña
-                    <Input onChange={(e) => setPassword(e.target.value)} type="password" />
-                </Label>
-                {/* <P>La contraseña ha de contener letras y números</P> */}
-            </Section> 
-            <Section>
-                <Button onClick={(e) => handleSubmit(e)}>Crear cuenta</Button>
-                <p>¿Ya tienes cuenta? <Span onClick={() => signin()}>Inicia sesión</Span></p>
-            </Section>
+                <Section>
+                    {isDesktop ? null : motokoLogo()}
+                    <h2>Crear una cuenta</h2>
+                    <Button>Iniciar Sesión con Google</Button>
+                    <p>O</p>
+                </Section>
+                <Section>
+                    <Label>
+                        Nombre
+                        <Input onChange={(e) => setName(e.target.value)} type="text" />
+                    </Label>
+                </Section>
+                <Section>
+                    <Label>
+                        Email
+                        <Input onChange={(e) => setEmail(e.target.value)} type="text" />
+                    </Label>
+                </Section>
+                <Section>
+                    <Label>
+                        Contraseña
+                        <Input onChange={(e) => setPassword(e.target.value)} type="password" />
+                    </Label>
+                    {/* <P>La contraseña ha de contener letras y números</P> */}
+                </Section>
+                <Section>
+                    <Button onClick={(e) => handleSubmit(e)}>Crear cuenta</Button>
+                    <p>¿Ya tienes cuenta? <Span onClick={() => signin()}>Inicia sesión</Span></p>
+                </Section>
             </Container2>
         );
     }
 
+
     return <Container>
-        {isDesktop ? <Welcome /> : null} 
+        {isDesktop ? <Welcome /> : null}
         <Right>
-           {renderForm()}
+            {renderForm()}
         </Right>
-        </Container>
+    </Container>
 };
 
 export default SignUp;
