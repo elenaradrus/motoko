@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { isDesktop } from '../../utils/devices';
 
 import { 
    font,
@@ -18,6 +19,33 @@ const Container = styled.div`
    height: 100vh;
    width: 100vw;
    margin: 0 auto; 
+   @media (min-width: 1280px) {
+      display: flex;
+      flex-direction: row;
+   }
 `;
 
-export { Container };
+const WelcomeBanner = styled.div`
+@media (min-width: 1280px) {
+   width: 60%;
+   height: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}  
+`;
+
+const Form = styled.div`
+@media (min-width: 1280px) {
+   width: 40%;
+   height: 100%;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+}
+`;
+
+
+
+export { Container, WelcomeBanner, Form };
