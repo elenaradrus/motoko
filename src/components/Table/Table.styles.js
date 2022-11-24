@@ -22,7 +22,7 @@ const TableContainer = styled.div`
 
 const SpendingsTable = styled.table`
     border-collapse: collapse;
-    width: 70rem;
+    width: 60rem;
     box-shadow: 10px 10px 35px -16px rgba(0,0,0,0.75);
 `;
 
@@ -30,9 +30,27 @@ const Title = styled.th`
     background-color: ${green};
     font-weight: 100;
     color: white;
-    width: 10rem;
     border-collapse: collapse;
-    //text-align: left;
+    text-align: left;
+    padding-left: 1rem;
+`;
+
+const TitlePrice = styled.th`
+    background-color: ${green};
+    font-weight: 100;
+    color: white;
+    text-align: right;
+    padding-right: 1rem;
+
+`;
+
+const TitleDate = styled.th`
+    background-color: ${green};
+    font-weight: 100;
+    color: white;
+    text-align: left;
+    padding-left: 1rem;
+
 `;
 
 const Description = styled.td`
@@ -54,4 +72,4 @@ const DescriptionDate = styled.td`
 
 
 
-export { Title, SpendingsTable, Description, TableContainer, TableRow, DescriptionPrice, DescriptionDate }
+export { Title, TitlePrice, TitleDate, SpendingsTable, Description, TableContainer, TableRow, DescriptionPrice, DescriptionDate }
