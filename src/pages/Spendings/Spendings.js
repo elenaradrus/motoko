@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import Table from "../../components/Table/Table";
+import UpperMenu from "../../components/UpperMenu/UpperMenu";
 
 const Spendings = () => {
     const navigate = useNavigate();
@@ -9,8 +10,8 @@ const Spendings = () => {
     }
     return (
         <div>
+            <UpperMenu/>
             <h1>Spendings Page</h1>
-            <p onClick={() => handleOnClick()}>Volver al inicio</p>
             <Table />
         </div>
     );

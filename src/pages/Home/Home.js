@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import Layout from '../../components/Layout/Layout';
 // import {InputNumber} from '../../components/InputNumber';
 // import {Button} from '../../components/Button';
 // import {Container, InputDate, Separator, Sentence} from './Home.styles';
@@ -17,8 +18,7 @@ export const Home = () => {
 
     return (
         <div>
-            <h1>Home Page</h1>
-            <p onClick={() => handleOnClick()}>Ir a gastos</p>
+            <Layout/>
         </div>
     );
 };
