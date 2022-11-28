@@ -13,7 +13,14 @@ const LayoutContainer = styled.div`
     height: 100vh; 
     display: flex;
     //background-color: ${orange};
-
 `;
 
-export { LayoutContainer };
+const Children = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+`;
+
+export { LayoutContainer, Children };

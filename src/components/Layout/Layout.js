@@ -1,18 +1,20 @@
 import UpperMenu from "../UpperMenu/UpperMenu";
 import LateralMenu from "../LateralMenu/LateralMenu";
-import { LayoutContainer } from "./Layout.styles";
+import {
+    LayoutContainer,
+    Children
+} from "./Layout.styles";
 
-const Layout = () => {
+
+const Layout = ({children}) => {
     return (
         <div>
             <UpperMenu />
             <LayoutContainer>
                 <LateralMenu />
-                Hola mundo
+                {children}
             </LayoutContainer>
         </div>
-
-
     );
 }
 

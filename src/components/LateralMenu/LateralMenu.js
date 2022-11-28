@@ -1,7 +1,10 @@
+import { Link } from "react-router-dom";
+
 import {
     LateralMenuContainer,
     FilterSpendings,
-    Divider
+    Divider,
+    NavLinks
 } from "./LateralMenu.styles";
 
 import { categories } from "../../categories";
@@ -9,9 +12,9 @@ const LateralMenu = () => {
     return (
         <div>
             <LateralMenuContainer>
-                <p>Inicio</p>
-                <p>Calendario</p>
-                <p>Gastos del Mes</p>
+                <NavLinks to={'/'}>Inicio</NavLinks>
+                <NavLinks to={'/'}>Calendario</NavLinks>
+                <NavLinks to='/spendings'>Gastos del Mes</NavLinks>
 
                 <Divider></Divider>
 

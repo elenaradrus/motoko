@@ -5,8 +5,6 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Home } from './pages/Home';
 import {SignIn} from './pages/SignIn';
 import {SignUp} from './pages/SignUp';
-import {ExerciseTypes} from './pages/ExerciseTypes';
-import {MuscleSession} from './pages/MuscleSession';
 
 import reportWebVitals from './reportWebVitals';
 
@@ -24,8 +22,6 @@ ReactDOM.render(
                 <Route path="/sign-in" element={<SignIn />} />
                 <Route path="/sign-up" element={<SignUp />} />
                 <Route path="/spendings" element={<Spendings />} />
-                <Route path="/training-day/type" element={<ExerciseTypes/>} />
-                <Route path="/training-day/:date/types/:type" element={<MuscleSession />}/>
             </Routes>
         </BrowserRouter>
   </Provider>,

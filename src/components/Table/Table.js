@@ -11,9 +11,15 @@ import {
 } from "./Table.styles";
 
 import { spendings } from "../../mock";
+import AddSpending from "../AddSpending/AddSpending";
 
 
 const Table = () => {
+
+    const price = spendings.map(e => e.price);
+    console.log(price);
+    const sum = price.reduce((a, b) => a + b, 0);
+    console.log(sum)
 
     return (
         <TableContainer>
@@ -33,6 +39,7 @@ const Table = () => {
                     </TableRow>
                 ) : ''}
             </SpendingsTable>
+            <AddSpending/>
         </TableContainer >
     );
 }

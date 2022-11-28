@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 import { 
     font,
@@ -9,6 +10,8 @@ import {
 } from '../../styles/styles.template';
 
 const LateralMenuContainer = styled.div`
+    display: flex;
+    flex-direction: column;
     padding-left: 2rem;
     padding-top: 2rem;
     background-color: ${grey};
@@ -29,6 +32,17 @@ const Divider = styled.hr`
     width: 10rem;
 `;
 
+const NavLinks = styled(Link)`
+    text-decoration: none;
+    color: black;
+    padding-bottom: 1rem;
+    &:hover,
+    &:focus,
+    &:active {
+        color: ${orange}
+    }
+`;
 
 
-export { LateralMenuContainer, FilterSpendings, Divider };
+
+export { LateralMenuContainer, FilterSpendings, Divider, NavLinks };

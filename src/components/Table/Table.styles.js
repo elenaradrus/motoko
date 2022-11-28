@@ -14,15 +14,18 @@ const TableContainer = styled.div`
     font-family: ${fontFamily};
     font-weight: 100;
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     margin-top: 5rem;
     height: fit-content;
-    
+    width: 100%; 
 `;
 
 const SpendingsTable = styled.table`
     border-collapse: collapse;
     width: 60rem;
+    margin-bottom: 3rem;
     box-shadow: 10px 10px 35px -16px rgba(0,0,0,0.75);
 `;
 
