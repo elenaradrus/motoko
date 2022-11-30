@@ -22,7 +22,6 @@ const MotokoLogo = styled.h1`
         color: ${green};
         cursor: pointer;
 }
-
 `;
 
 const Links = styled.div`

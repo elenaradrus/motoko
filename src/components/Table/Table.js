@@ -23,6 +23,7 @@ const Table = () => {
 
     return (
         <TableContainer>
+            <p>Este mes llevas gastado: {sum} €</p>
             <SpendingsTable>
                 <TableRow>
                     <Title>Fecha</Title>
