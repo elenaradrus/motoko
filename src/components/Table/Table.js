@@ -1,13 +1,12 @@
 import {
     Title,
     TitlePrice,
-    TitleDate,
+    TotalSpendings,
     SpendingsTable,
     Description,
     TableContainer,
     TableRow,
-    DescriptionPrice,
-    DescriptionDate
+    DescriptionPrice
 } from "./Table.styles";
 
 import { spendings } from "../../mock";
@@ -23,7 +22,7 @@ const Table = () => {
 
     return (
         <TableContainer>
-            <p>Este mes llevas gastado: {sum} €</p>
+            <TotalSpendings>Total gastos: {sum} €</TotalSpendings>
             <SpendingsTable>
                 <TableRow>
                     <Title>Fecha</Title>

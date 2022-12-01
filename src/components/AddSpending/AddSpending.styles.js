@@ -12,45 +12,32 @@ const AddSpendingContainer = styled.div`
     width: 60rem;
     display: flex;
     flex-direction: column;
-    align-items: center;
-`;
-
-const DateAndCategory = styled.div`
-    display: flex;
     justify-content: center;
     align-items: center;
-    gap: 5rem;
 `;
 
 const Date = styled.div`
     display: flex;
     flex-direction: column;
+    width: 60%;
 `;
 
 const Category = styled.div`
     display: flex;
     flex-direction: column;
-`;
-
-const InputType = styled.input`
-    color: ${green};
-    border-radius: .3rem;
-    border: 1px solid transparent;
-    padding: .5rem;
-    background-color: #CDDAD8;
-    width: 90%;
-    margin-bottom: 1rem;
-    &:focus {
-        outline: none;
-        border: 2px solid ${orange};
-    };
+    width: 60%;
 `;
 
 const Description = styled.div`
     display: flex;
     flex-direction: column;
-    align-items: center;
-    width: 100%;
+    width: 60%;
+`;
+
+const Price = styled.div`
+    display: flex;
+    flex-direction: column;
+    width: 60%;
 `;
 
 const Select = styled.select`
@@ -68,9 +55,7 @@ const Select = styled.select`
 `;
 
 const Label = styled.label`
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
+    letter-spacing: .2rem;
 `;
 
 const Option = styled.option`
@@ -85,27 +70,14 @@ const Input = styled.input`
    border: 1px solid transparent;
    padding: .5rem;
    background-color: #CDDAD8;
-   width: 35%;
+   width: 97%;
    margin-bottom: 1rem;
    &:focus {
       outline: none;
       border: 2px solid ${orange};
-  };
-}
+    };
 `;
 
-const PriceAndButton = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 3rem;
-    width: 37%;
-`;
-
-const Price = styled.div`
-    display: flex;
-    flex-direction: column;
-`;
 
 
 const Button = styled.button`
@@ -120,20 +92,19 @@ const Button = styled.button`
    color: white;
    background-color: ${green};
    width: 60%;
+   margin-top: 1rem;
+   margin-bottom: 2rem;
 `;
 
 export {
     AddSpendingContainer,
     Button,
     Input,
-    InputType,
     Select, 
     Option,
-    DateAndCategory,
     Label,
     Date,
     Category,
     Description,
-    PriceAndButton,
     Price
 };

@@ -20,6 +20,7 @@ const LateralMenuContainer = styled.div`
     font-family: ${fontFamily};
     font-weight: 100;
     letter-spacing: .2rem;
+    box-shadow: 7px 7px 19px -11px rgba(0,0,0,0.75);
 `;
 
 const FilterSpendings = styled.p`

@@ -13,6 +13,7 @@ const UpperMenuContainer = styled.div`
     font-family: ${fontFamily};
     display: flex;
     justify-content: space-around;
+    box-shadow: 7px 7px 19px -11px rgba(0,0,0,0.75);
 `;
 
 const MotokoLogo = styled.h1`
