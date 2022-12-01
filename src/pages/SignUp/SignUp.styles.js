@@ -70,11 +70,6 @@ const Input = styled.input`
 }
 `;
 
-// const P = styled.p`
-//    font-size: .85rem;
-//    color: grey;
-// `;
-
 const Button = styled.button`
    @import url('${font}');
    font-family: 'Raleway', sans-serif;
