@@ -43,8 +43,9 @@ export const SignUp = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log('email', email);
-        console.log('password', password);
+        // console.log('email', email);
+        // console.log('password', password);
+        // console.log('name', name);
         if (name === '' || email === '' || password === '') {
             console.log('Todos los campos son obligatorios')
         } else {
@@ -52,23 +53,22 @@ export const SignUp = () => {
                 //await AuthDataService.signUp(email, password);
                 await AuthDataService.signUp(email, password).then((userCredentials) => {
                     console.log('response: ', userCredentials.user);
-                    const { uid, email } = userCredentials.user;
-                    // 1. ¿este usuario existe? 
-                    // user.uid;
-                    // user.email;
-                    // user.accessToken
-                    UsersDataService.addUser({ uid, email, name }).then(() => {
+                    const { email, uid } = userCredentials.user;
+                    console.log('email: ', email);
+                    console.log('uid: ', uid);
+                    /*UsersDataService.addUser({ email, name, uid }).then(() => {
+                        console.log(uid)
                         console.log('el usuario se ha creado correctamente');
-                    }).catch(err => console.log('error: ', err));
+                        navigate('/');
+                        UsersDataService.getLoggedUser(uid);
+                    }).catch(err => console.log('error: ', err));*/
                 }).catch(err => { console.log('error: ', err) });
-                // navigate('/');
             } catch (err) {
                 console.log('🚀 TLC ~ file: SignUp.js ~ line 21 ~ handleSubmit ~ err', err.message);
             }
-
-            navigate('/');
         }
     };
+
 
     const signin = () => {
         navigate('/sign-in');
@@ -92,19 +92,19 @@ export const SignUp = () => {
                 <Section>
                     <Label>
                         Nombre
-                        <Input onChange={(e) => setName(e.target.value)} type="text" />
+                        <Input value={name} onChange={(e) => setName(e.target.value)} type="text" />
                     </Label>
                 </Section>
                 <Section>
                     <Label>
                         Email
-                        <Input onChange={(e) => setEmail(e.target.value)} type="text" />
+                        <Input value={email} onChange={(e) => setEmail(e.target.value)} type="text" />
                     </Label>
                 </Section>
                 <Section>
                     <Label>
                         Contraseña
-                        <Input onChange={(e) => setPassword(e.target.value)} type="password" />
+                        <Input value={password} onChange={(e) => setPassword(e.target.value)} type="password" />
                     </Label>
                     {/* <P>La contraseña ha de contener letras y números</P> */}
                 </Section>

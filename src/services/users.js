@@ -5,10 +5,13 @@ import COLLECTIONS from './constants';
 import {
     collection,
     getDoc,
+    getDocs,
     addDoc,
     updateDoc,
     deleteDoc,
-    doc
+    doc,
+    query,
+    where
 } from 'firebase/firestore';
 
 const usersCollectionRef = collection(db, COLLECTIONS.USERS);
@@ -31,6 +34,21 @@ class UsersDataService {
     getUser = ( id ) => {
         const userDoc = doc(db, COLLECTIONS.USERS, id);
         return getDoc(userDoc);
+    }
+
+    getLoggedUser = async (uid) => {
+        console.log('getLoggedUser uid: ', uid);
+        const allUsers = query(collection(db, COLLECTIONS.USERS), where ("uid", "==", uid));
+        const querySnapshot = await getDocs(allUsers);
+        let user;
+        querySnapshot.forEach((doc) => {
+            user = {
+                id: doc.id,
+                data: doc.data()
+            }
+        });
+        console.log('users: ', user);
+        return user;
     }
 }
 
