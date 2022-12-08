@@ -6,13 +6,15 @@ import {
 } from "./Layout.styles";
 
 
-const Layout = ({children}) => {
+const Layout = ({ children }) => {
     return (
         <div>
             <UpperMenu />
             <LayoutContainer>
                 <LateralMenu />
-                {children}
+                <Children>
+                    {children}
+                </Children>
             </LayoutContainer>
         </div>
     );

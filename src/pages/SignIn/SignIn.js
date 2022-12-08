@@ -47,7 +47,6 @@ export const SignIn = () => {
                     ));
                 });
                 navigate('/');
-              
             });
         } catch (err) {
             console.log('🚀 TLC ~ file: signIn.js ~ line 21 ~ handleSubmit ~ err', err.message);

@@ -39,7 +39,6 @@ const Table = () => {
                     </TableRow>
                 ) : ''}
             </SpendingsTable>
-            <AddSpending/>
         </TableContainer >
     );
 }

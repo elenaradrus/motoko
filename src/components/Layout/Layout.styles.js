@@ -17,10 +17,14 @@ const LayoutContainer = styled.div`
 
 const Children = styled.div`
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
     height: 100%;
+    font-family: ${fontFamily};
+    font-weight: 100;
+    margin-top: 2rem;
 `;
 
 export { LayoutContainer, Children };

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import Welcome from '../../components/Welcome/Welcome';
 import { resolution, isMobile, isTablet, isDesktop } from '../../utils/devices';
+import { useDispatch } from 'react-redux'
 
 import {
     Container,
@@ -15,6 +16,9 @@ import {
     Right,
 } from './SignUp.styles';
 
+import {getUserSuccess, getUserError} from '../../store/User/actions';
+
+
 import AuthDataService from '../../services/auth';
 import UsersDataService from '../../services/users';
 
@@ -24,6 +28,8 @@ export const SignUp = () => {
     const [password, setPassword] = useState();
     //const [confirmPassword, setConfirmPassword] = useState();
     const navigate = useNavigate();
+    const dispatch = useDispatch();
+
 
     const checkIfUserExist = async (id, email) => {
         console.log('🚀 TLC ~ file: SignUp.js ~ line 15 ~ checkIfUserExist ~ id', id)
@@ -54,14 +60,23 @@ export const SignUp = () => {
                 await AuthDataService.signUp(email, password).then((userCredentials) => {
                     console.log('response: ', userCredentials.user);
                     const { email, uid } = userCredentials.user;
-                    console.log('email: ', email);
-                    console.log('uid: ', uid);
-                    /*UsersDataService.addUser({ email, name, uid }).then(() => {
-                        console.log(uid)
+                    // console.log('email: ', email);
+                    // console.log('uid: ', uid);
+                    UsersDataService.addUser({ email, name, uid }).then(() => {
+                        //console.log(uid)
                         console.log('el usuario se ha creado correctamente');
-                        navigate('/');
-                        UsersDataService.getLoggedUser(uid);
-                    }).catch(err => console.log('error: ', err));*/
+                        UsersDataService.getLoggedUser(uid).then(user => {
+                            dispatch(getUserSuccess(
+                                {
+                                    name: user.data.name,
+                                    uid: user.data.uid,
+                                    email: user.data.email,
+                                    id: user.id
+                                }
+                            ));
+                            navigate('/');
+                        }).catch(err => dispatch(getUserError(err)));
+                    }).catch(err => console.log('error: ', err));
                 }).catch(err => { console.log('error: ', err) });
             } catch (err) {
                 console.log('🚀 TLC ~ file: SignUp.js ~ line 21 ~ handleSubmit ~ err', err.message);
