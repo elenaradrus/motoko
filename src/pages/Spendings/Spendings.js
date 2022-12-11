@@ -9,7 +9,7 @@ const Spendings = () => {
     
     return (
         <Layout>
-            {/* <Table /> */}
+            <Table />
             <AddSpending />
         </Layout>
     );

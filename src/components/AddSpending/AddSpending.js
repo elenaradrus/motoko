@@ -30,7 +30,7 @@ const AddSpending = () => {
         console.log("", description)
         console.log("", amount)
         try {
-            await SpendingsDataService.addDoc(date, category, description, +amount)
+            await SpendingsDataService.addNewSpending({date, category, description, amount: +amount})
             console.log("documento creado");
         } catch (error) {
             console.log("spendings error", error);
