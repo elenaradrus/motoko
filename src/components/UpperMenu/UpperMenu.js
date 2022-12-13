@@ -16,7 +16,7 @@ const UpperMenu = () => {
     }
 
     const userName = useSelector((state) => state.user.name)
-    console.log(userName);
+    console.log("usuario logeado", userName);
 
     return (
         <UpperMenuContainer >

@@ -16,29 +16,8 @@ import {
 import SpendingsDataService from '../../services/spendings';
 
 
-const AddSpending = () => {
-
-    const [date, setDate] = useState('');
-    const [category, setCategory] = useState('Fijos');
-    const [description, setDescription] = useState('');
-    const [amount, setAmount] = useState();
-
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        console.log("date", date)
-        console.log("", category)
-        console.log("", description)
-        console.log("", amount)
-        try {
-            await SpendingsDataService.addNewSpending({date, category, description, amount: +amount})
-            console.log("documento creado");
-        } catch (error) {
-            console.log("spendings error", error);
-        }
-    };
-
-
-
+const AddSpending = ({ date, setDate, category, setCategory, description, setDescription, amount, setAmount, handleSubmit }) => {
+    
     return (
         <AddSpendingContainer>
 

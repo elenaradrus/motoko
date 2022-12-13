@@ -17,7 +17,7 @@ import { useEffect, useState } from "react";
 
 const Table = ({spendings}) => {
 
-    console.log("LEO spendings table", spendings);
+    //console.log("LEO spendings table", spendings);
     //console.log(spendings.map(e => e.data))
     // const price = spendings.map(e => e.price);
     // //console.log(price);
