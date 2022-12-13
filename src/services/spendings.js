@@ -31,8 +31,8 @@ class SpendingsDataService {
         return docRef;
     }
     getSpendings = async () => {
-        const docRef = await getDocs(collection(db, COLLECTIONS.USERS, '0Q3vYur5KRbEmzefNAot', COLLECTIONS.SPENDINGS));
-        return docRef;
+        const querySnapshot = await getDocs(collection(db, COLLECTIONS.USERS, '0Q3vYur5KRbEmzefNAot', COLLECTIONS.SPENDINGS));
+        return querySnapshot;
     }
 }
 
