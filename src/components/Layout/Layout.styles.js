@@ -24,7 +24,6 @@ const Children = styled.div`
     height: 100%;
     font-family: ${fontFamily};
     font-weight: 100;
-    margin-top: 2rem;
 `;
 
 export { LayoutContainer, Children };

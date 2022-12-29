@@ -11,18 +11,31 @@ import {
 
 import { spendings } from "../../mock";
 import AddSpending from "../AddSpending/AddSpending";
+import SpendingsDataService from '../../services/spendings';
+import { useEffect, useState } from "react";
 
 
-const Table = () => {
+const Table = ({spendings}) => {
 
-    const price = spendings.map(e => e.price);
-    console.log(price);
-    const sum = price.reduce((a, b) => a + b, 0);
-    console.log(sum)
+    //console.log("LEO spendings table", spendings);
+    //console.log(spendings.map(e => e.data))
+    // const price = spendings.map(e => e.price);
+    // //console.log(price);
+    // const sum = price.reduce((a, b) => a + b, 0);
+    // //console.log(sum)
+    // const [spendings, setSpendings] = useState();
+    //const [message, setMessage] = useState();
+
+
+    // const price = spendings.map(e => e.amount);
+    // console.log(price);
+    // const totalAmount = price.reduce((a, b) => a + b, 0);
+    // console.log(totalAmount)
+
 
     return (
         <TableContainer>
-            <TotalSpendings>Total gastos: {sum} €</TotalSpendings>
+            <TotalSpendings>Total gastos: // €</TotalSpendings>
             <SpendingsTable>
                 <TableRow>
                     <Title>Fecha</Title>
@@ -30,14 +43,14 @@ const Table = () => {
                     <Title>Descripción</Title>
                     <TitlePrice>Precio</TitlePrice>
                 </TableRow>
-                {spendings ? spendings.map((e, i) =>
-                    <TableRow key={i}>
-                        <Description>{e.date}</Description>
-                        <Description>{e.category}</Description>
-                        <Description>{e.description}</Description>
-                        <DescriptionPrice>{e.price} €</DescriptionPrice>
+                {spendings ? spendings.map((spending, index) =>
+                    <TableRow key={index}>
+                        <Description>{spending.data.date}</Description>
+                        <Description>{spending.data.category}</Description>
+                        <Description>{spending.data.description}</Description>
+                        <DescriptionPrice>{spending.data.amount} €</DescriptionPrice>
                     </TableRow>
-                ) : ''}
+                ) : ''} 
             </SpendingsTable>
         </TableContainer >
     );

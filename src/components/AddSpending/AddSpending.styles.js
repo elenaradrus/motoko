@@ -94,6 +94,15 @@ const Button = styled.button`
    width: 60%;
    margin-top: 1rem;
    margin-bottom: 2rem;
+   cursor: pointer;
+
+   &:hover {
+    background-color: red;
+  }
+
+  &:active{
+      background-color: gold;
+  }
 `;
 
 export {

@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import Layout from '../../components/Layout/Layout';
+import MonthIncome from '../../components/MonthIncome/MonthIncome';
 // import {InputNumber} from '../../components/InputNumber';
 // import {Button} from '../../components/Button';
 // import {Container, InputDate, Separator, Sentence} from './Home.styles';
@@ -17,9 +18,10 @@ export const Home = () => {
     }
 
     return (
-        <div>
-            <Layout/>
-        </div>
+        <Layout>
+            <MonthIncome />
+        </Layout>
+        
     );
 };
 

@@ -13,7 +13,7 @@ const LateralMenu = () => {
         <div>
             <LateralMenuContainer>
                 <NavLinks to={'/'}>Inicio</NavLinks>
-                <NavLinks to={'/'}>Calendario</NavLinks>
+                <NavLinks to={'/calendar'}>Calendario</NavLinks>
                 <NavLinks to='/spendings'>Gastos del Mes</NavLinks>
 
                 <Divider></Divider>
