@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import { Home } from './pages/Home';
+import Calendar from './pages/Calendar/Calendar';
 import {SignIn} from './pages/SignIn';
 import {SignUp} from './pages/SignUp';
 
@@ -19,6 +20,7 @@ ReactDOM.render(
     <BrowserRouter>
             <Routes>
                 <Route path="/" element={<Home />} />
+                <Route path="/calendar" element={<Calendar />} />
                 <Route path="/sign-in" element={<SignIn />} />
                 <Route path="/sign-up" element={<SignUp />} />
                 <Route path="/spendings" element={<Spendings />} />

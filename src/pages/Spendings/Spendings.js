@@ -20,6 +20,8 @@ const Spendings = () => {
     const [newSpending, setNewSpending] = useState();
     const [updateSpendingTable, setUpdateSpendingTable] = useState(false);
 
+    const [message, setMessage] = useState("")
+
 
     useEffect(() => {
         const spendings = [];
@@ -40,27 +42,32 @@ const Spendings = () => {
         console.log("category", category)
         console.log("description", description)
         console.log("amount", amount)
-        try {
-            const result = await SpendingsDataService.addNewSpending({ date, category, description, amount: +amount })
-            console.log("documento creado: ", result.id);
-            setUpdateSpendingTable(!updateSpendingTable);
-        } catch (error) {
-            console.log("spendings error", error);
-        }
+        if (date === "" || category === "" || description === "" || amount == (0 || NaN || undefined)) {
+            setMessage("Todo los campos son obligatorios");
+        } else {
+            try {
+                const result = await SpendingsDataService.addNewSpending({ date, category, description, amount: +amount })
+                console.log("documento creado: ", result.id);
+                setUpdateSpendingTable(!updateSpendingTable);
+                setMessage("Gasto añadido");
+            } catch (error) {
+                console.log("spendings error", error);
+                setMessage("No se ha podido guardar tu gasto. Inténtalo de nuevo");
+            };
+        };
     };
 
-    const renderTable = () =>{
-        if(spendings === undefined && isLoadingSpendings){
+    const renderTable = () => {
+        if (spendings === undefined && isLoadingSpendings) {
             return 'Cargando gastos';
-        }
-
-        if(spendings){
-            return  <Table spendings={spendings} />;
-        }
-    }
+        };
+        if (spendings) {
+            return <Table spendings={spendings} />;
+        };
+    };
 
     return (
-        <Layout> 
+        <Layout>
             {renderTable()}
             <AddSpending
                 date={date}
@@ -73,6 +80,7 @@ const Spendings = () => {
                 setAmount={setAmount}
                 handleSubmit={handleSubmit}
             />
+            {message}
         </Layout>
     );
 }

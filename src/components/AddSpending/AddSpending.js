@@ -13,8 +13,6 @@ import {
     Price
 } from './AddSpending.styles';
 
-import SpendingsDataService from '../../services/spendings';
-
 
 const AddSpending = ({ date, setDate, category, setCategory, description, setDescription, amount, setAmount, handleSubmit }) => {
     

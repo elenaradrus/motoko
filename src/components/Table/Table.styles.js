@@ -15,9 +15,7 @@ const TableContainer = styled.div`
     font-weight: 100;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    margin-top: 2rem;
     height: fit-content;
     width: 100%; 
 `;
@@ -26,7 +24,7 @@ const TotalSpendings = styled.p`
     background-color: ${grey};
     width: 48%;
     padding: .5rem;
-    display:flex;
+    display: flex;
     justify-content: center;
     border-radius: .3rem;
     letter-spacing: .2rem;
