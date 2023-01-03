@@ -9,7 +9,7 @@ import {
     Date,
     Category,
     Label,
-    Description,
+    Name,
     Price
 } from './AddSpending.styles';
 
@@ -42,13 +42,13 @@ const AddSpending = ({ date, setDate, category, setCategory, description, setDes
                 </Select>
             </Category>
 
-            <Description>
-                <Label>Descripción</Label>
+            <Name>
+                <Label>Nombre</Label>
                 <Input
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
                 />
-            </Description>
+            </Name>
 
             <Price>
                 <Label>Precio</Label>

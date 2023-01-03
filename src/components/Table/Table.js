@@ -3,7 +3,7 @@ import {
     TitlePrice,
     TotalSpendings,
     SpendingsTable,
-    Description,
+    Name,
     TableContainer,
     TableRow,
     DescriptionPrice
@@ -40,14 +40,14 @@ const Table = ({spendings}) => {
                 <TableRow>
                     <Title>Fecha</Title>
                     <Title>Categoria</Title>
-                    <Title>Descripción</Title>
+                    <Title>Nombre</Title>
                     <TitlePrice>Precio</TitlePrice>
                 </TableRow>
                 {spendings ? spendings.map((spending, index) =>
                     <TableRow key={index}>
-                        <Description>{spending.data.date}</Description>
-                        <Description>{spending.data.category}</Description>
-                        <Description>{spending.data.description}</Description>
+                        <Name>{spending.data.date}</Name>
+                        <Name>{spending.data.category}</Name>
+                        <Name>{spending.data.description}</Name>
                         <DescriptionPrice>{spending.data.amount} €</DescriptionPrice>
                     </TableRow>
                 ) : ''} 

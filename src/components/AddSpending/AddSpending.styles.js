@@ -28,7 +28,7 @@ const Category = styled.div`
     width: 60%;
 `;
 
-const Description = styled.div`
+const Name = styled.div`
     display: flex;
     flex-direction: column;
     width: 60%;
@@ -114,6 +114,6 @@ export {
     Label,
     Date,
     Category,
-    Description,
+    Name,
     Price
 };
