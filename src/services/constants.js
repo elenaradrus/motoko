@@ -1,6 +1,7 @@
 const COLLECTIONS = {
     USERS: 'users',
-    SPENDINGS: 'spendings'
+    SPENDINGS: 'spendings',
+    INCOME: 'income'
 };
 
 export default COLLECTIONS;
