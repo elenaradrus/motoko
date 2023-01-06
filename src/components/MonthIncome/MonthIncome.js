@@ -1,4 +1,4 @@
-import { 
+import {
     Table,
     IncomeContainer,
     Tr,
@@ -8,7 +8,7 @@ import {
     TdPrice
 } from "./MonthIncome.styles";
 
-const MonthIncome = () => {
+const MonthIncome = ({ income }) => {
     return (
         <IncomeContainer>
             <Table>
@@ -22,16 +22,13 @@ const MonthIncome = () => {
                 </thead>
 
                 <tbody>
-                    <Tr>
-                        <Td>01/01/2023</Td>
-                        <Td>Nómina</Td>
-                        <TdPrice>1450 €</TdPrice>
-                    </Tr>
-                    <Tr>
-                        <Td>12/01/2023</Td>
-                        <Td>Sesión Fotografía</Td>
-                        <TdPrice>550 €</TdPrice>
-                    </Tr>
+                    {income ? income.map((income, index) =>
+                        <Tr key={index}>
+                            <Td>{income.data.date}</Td>
+                            <Td>{income.data.name}</Td>
+                            <TdPrice>{income.data.amount}</TdPrice>
+                        </Tr>
+                    ) : ''}
                 </tbody>
 
             </Table>

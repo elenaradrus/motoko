@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import Layout from '../../components/Layout/Layout';
 import MonthIncome from '../../components/MonthIncome/MonthIncome';
 import AddIncome from '../../components/AddIncome/AddIncome';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import IncomeDataService from '../../services/income';
 
@@ -18,12 +18,25 @@ export const Home = () => {
     const [name, setName] = useState();
     const [amount, setAmount] = useState();
 
-    const navigate = useNavigate();
+    const [income, setIncome] = useState();
+
+    useEffect(() => {
+      const income = [];
+      IncomeDataService.getIncome().then((querySnapshot) => {
+          querySnapshot.forEach(doc => {
+              income.push({id: doc.id, data: doc.data()});
+          });
+          setIncome(income);
+          console.log(income)
+      });
+    }, [])
+    
+
+    //const navigate = useNavigate();
 
     //const date = useSelector((state) => state.trainingDay.date);
 
     const handleOnClick = async (e) => {
-        //navigate('/spendings');
         e.preventDefault();
         console.log("date", date)
         console.log("name", name)
@@ -39,7 +52,7 @@ export const Home = () => {
 
     return (
         <Layout>
-            <MonthIncome />
+            <MonthIncome income={income}/>
             <AddIncome
                 date={date}
                 setDate={setDate}

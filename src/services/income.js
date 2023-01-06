@@ -28,6 +28,10 @@ class IncomeDataService {
         const docRef = await addDoc(collection(db, COLLECTIONS.USERS, '0Q3vYur5KRbEmzefNAot', COLLECTIONS.INCOME), income);
         return docRef;
     }
+    getIncome = async () => {
+        const querySnapshot = await getDocs(collection(db, COLLECTIONS.USERS, '0Q3vYur5KRbEmzefNAot', COLLECTIONS.INCOME));
+        return querySnapshot;
+    }
 
 }
 
