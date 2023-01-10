@@ -6,10 +6,6 @@ import { useEffect, useState } from 'react';
 
 import IncomeDataService from '../../services/income';
 
-// import {InputNumber} from '../../components/InputNumber';
-// import {Button} from '../../components/Button';
-// import {Container, InputDate, Separator, Sentence} from './Home.styles';
-
 // import { useSelector } from 'react-redux';
 
 export const Home = () => {
@@ -19,6 +15,9 @@ export const Home = () => {
     const [amount, setAmount] = useState();
 
     const [income, setIncome] = useState();
+    const [updateIncome, setUpdateIncome] = useState();
+
+    const [message, setMessage] = useState();
 
     useEffect(() => {
       const income = [];
@@ -29,7 +28,7 @@ export const Home = () => {
           setIncome(income);
           console.log(income)
       });
-    }, [])
+    }, [updateIncome])
     
 
     //const navigate = useNavigate();
@@ -42,13 +41,20 @@ export const Home = () => {
         console.log("name", name)
         console.log("amount", amount, "€")
 
-        try {
-            const result = await IncomeDataService.addNewIncome({date, name, amount: +amount})
-            console.log("ingreso añadido en BD", result)
-        } catch (error) {
-            console.log("income error", error)
-        }
-    }
+        if(date === "" || name === "" || amount == (0 || NaN || undefined || "")) {
+            setMessage("Todo los campos son obligatorios");
+        } else {
+            try {
+                const result = await IncomeDataService.addNewIncome({date, name, amount: +amount})
+                console.log("ingreso añadido en BD", result)
+                setUpdateIncome(!updateIncome);
+                setMessage("Gasto añadido");
+            } catch (error) {
+                console.log("income error", error)
+                setMessage("No se ha podido guardar tu ingreso. Inténtalo de nuevo");
+            };
+        };  
+    };
 
     return (
         <Layout>
@@ -62,6 +68,7 @@ export const Home = () => {
                 setAmount={setAmount}
                 handleOnClick={handleOnClick}
             />
+            {message}
         </Layout>
 
     );
