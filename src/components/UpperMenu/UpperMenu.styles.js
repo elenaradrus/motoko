@@ -17,7 +17,7 @@ const UpperMenuContainer = styled.div`
 `;
 
 const MotokoLogo = styled.h1`
-    padding-right: 20rem;
+    padding-right: 28rem;
     color: ${orange};
     &:hover {
         color: ${green};
@@ -29,7 +29,7 @@ const Links = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 1rem;
+    gap: 3rem;
     padding-left: 30rem;
 `;
 

@@ -35,7 +35,8 @@ const SpendingsTable = styled.table`
     border-collapse: collapse;
     width: 60rem;
     margin-bottom: 3rem;
-    box-shadow: 7px 7px 19px -11px rgba(0,0,0,0.75);`;
+    box-shadow: 7px 7px 19px -11px rgba(0,0,0,0.75);
+`;
 
 const Title = styled.th`
     background-color: ${green};
@@ -55,7 +56,7 @@ const TitlePrice = styled.th`
 
 `;
 
-const Description = styled.td`
+const Name = styled.td`
     border-collapse: collapse;
     padding-left: 1rem;
 `;
@@ -74,7 +75,7 @@ export {
     TitlePrice,
     TotalSpendings,
     SpendingsTable, 
-    Description, 
+    Name, 
     TableContainer, 
     TableRow, 
     DescriptionPrice  
